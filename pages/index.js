@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
+import HomeComp from "../components/Home"
 
 export default function Home() {
   return (
@@ -16,7 +17,9 @@ export default function Home() {
         />
       </Head>
 
-      <main className="text-bold text-3xl">MY.NOTES</main>
+      <main>
+        <HomeComp />
+      </main>
     </div>
   )
 }

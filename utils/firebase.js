@@ -1,7 +1,6 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app"
-import { getAuth } from "firebase"
-import { getFireStore } from "firebase/firestore"
+import firebase from "firebase/compat/app"
+import "firebase/compat/firestore"
+import "firebase/compat/auth"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-librariesG
@@ -14,10 +13,16 @@ const firebaseConfig = {
   storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
   messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
   appId: process.env.NEXT_PUBLIC_APP_ID,
-  measurementId: NEXT_PUBLIC_MEASUREMENT_ID,
+  measurementId: process.env.NEXT_PUBLIC_MEASUREMENT_ID,
 }
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig)
-const auth = getAuth()
-const db = firebase.firestore()
+
+const firebaseApp = firebase.initializeApp(firebaseConfig)
+const db = firebaseApp.firestore
+const auth = firebaseApp.auth()
+
+export { auth }
+export default db
+
+//cheers
