@@ -5,7 +5,7 @@ import Head from "next/head"
 
 const Layout = ({ children }) => {
   return (
-    <div className="mx-6 md:max-w-2xl md:mx-auto bg-slate-50">
+    <div className="mx md:max-w-2xl md:mx-auto bg-slate-800 ">
       <Head>
         <title>My.Notes</title>
       </Head>

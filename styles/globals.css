@@ -6,10 +6,16 @@
 
 html,
 body {
+  background-color: #4d5b72;
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
   -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 a {

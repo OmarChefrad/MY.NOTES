@@ -4,9 +4,6 @@ import { auth } from "../../utils/firebase"
 import { useRouter } from "next/router"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { useEffect } from "react"
-import { auth } from "../utils/firebase"
-
-
 
 export default function Login() {
   const route = useRouter()
@@ -25,22 +22,21 @@ export default function Login() {
 
   useEffect(() => {
     if (user) {
-      const result = await signInWirhPopup(auth, googleProvider)
       route.push("/")
     }
     if (user) {
-      route.log("login")
+      console.log("logged in")
     }
-  }, [user])
+  }, [user, route])
 
   return (
-    <div className="shadow-xl mt-32 p-10 text-gray-7">
+    <div className="shadow-xl text-slate-100 mt-32 p-10 text-gray-7 bg-slate-800">
       <h2 className="text-2xl font-meduim">Start Writing Now</h2>
       <div className="py-4">
         <h3 className="py-4">Sign in with one of the providers</h3>
         <button
           onClick={GoogleLogin}
-          className="text-white shadow-lg bg-gray-700 w-full font-meduim rounded-lg flex align-middle p-4 gap-2">
+          className="text-slate-100 shadow-lg bg-gray-900 w-full font-meduim rounded-lg flex align-middle p-4 gap-2">
           <FcGoogle className="text-2xl" />
           Sign In with Google
         </button>
