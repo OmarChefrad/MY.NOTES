@@ -17,7 +17,7 @@ export default function dashbord() {
   }, [user, loading])
 
   return (
-    <div className="bg-slate-800 text-white">
+    <div className="h-screen bg-slate-800 text-white">
       <h1>Your Notes</h1>
 
       <div>Notes</div>
