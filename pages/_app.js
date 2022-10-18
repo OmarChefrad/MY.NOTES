@@ -2,6 +2,7 @@ import Layout from "../components/Layout"
 import "../styles/globals.css"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { ThemeProvider } from "next-themes"
 
 function MyApp({ Component, pageProps }) {
   const contextClass = {
@@ -13,19 +14,21 @@ function MyApp({ Component, pageProps }) {
     dark: "bg-slate-800",
   }
   return (
-    <Layout>
-      <ToastContainer
-        toastClassName={({ type }) =>
-          contextClass[type || "default"] +
-          " relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"
-        }
-        bodyClassName={() => "text-md font-slate-100 font-med block p-3"}
-        position="top-left"
-        autoClose={3000}
-        limit={1}
-      />
-      <Component {...pageProps} />
-    </Layout>
+    <ThemeProvider>
+      <Layout>
+        <ToastContainer
+          toastClassName={({ type }) =>
+            contextClass[type || "default"] +
+            " relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"
+          }
+          bodyClassName={() => "text-md font-slate-100 font-med block p-3"}
+          position="top-left"
+          autoClose={3000}
+          limit={1}
+        />
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   )
 }
 

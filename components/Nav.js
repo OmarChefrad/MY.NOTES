@@ -3,14 +3,17 @@ import React from "react"
 import Link from "next/link"
 import { auth } from "../utils/firebase"
 import { useAuthState } from "react-firebase-hooks/auth"
-import { CgDarkMode } from "react-icons/cg"
+import { BsMoonStarsFill } from "react-icons/bs"
+import { BsFillSunFill } from "react-icons/bs"
+import { useTheme } from "next-themes"
 
 const Nav = () => {
+  const { systemTheme, theme, setTheme } = useTheme()
+
   const [user, loading] = useAuthState(auth)
 
-  console.log(user)
   return (
-    <div className="flex bg-gray-900 h-16 justify-between items-center shadow-lg">
+    <div className="flex dark:bg-slate-100 bg-gray-900 h-16 justify-between items-center shadow-lg">
       <Link href="/">
         <button
           className="pl-4 md:pl-4 text-transparent text-2xl
@@ -20,9 +23,17 @@ const Nav = () => {
           MY NOTES
         </button>
       </Link>
-
+      <select
+        value={theme}
+        onChange={(e) => setTheme(e.target.value)}>
+        <option value="system">System</option>
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
       <ul className="flex items-center gap-4">
-        <CgDarkMode className="w-7 h-7 text-slate-200 cursor-pointer" />
+        <button>
+          <BsFillSunFill className="w-7 h-7 dark:text-slate-200 text-gray-900 cursor-pointer" />
+        </button>
         {!user && (
           <Link href={"/auth/login"}>
             <a
@@ -43,7 +54,7 @@ const Nav = () => {
               <div className="flex items-center pr-3">
                 <img
                   src={user.photoURL}
-                  alt="profilePhoto"
+                  alt="user"
                   className="cursor-pointer rounded-full m-1 object-fill w-12 h-12"
                 />
               </div>
