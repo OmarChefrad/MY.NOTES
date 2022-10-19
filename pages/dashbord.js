@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 import { auth } from "../utils/firebase"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { useRouter } from "next/router"
-import { Link } from "next/link"
 
 export default function dashbord() {
   const route = useRouter()
@@ -17,7 +16,7 @@ export default function dashbord() {
   }, [user, loading])
 
   return (
-    <div className="h-screen bg-slate-800 text-white">
+    <div className="h-screen dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-gray-900 ">
       <h1>Your Notes</h1>
 
       <div>Notes</div>

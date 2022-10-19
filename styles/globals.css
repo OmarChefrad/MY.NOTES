@@ -12,10 +12,11 @@ body {
   font-family: "Poppins", sans-serif;
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
+  user-select: none;
 }
 
 body {
-  @apply dark:bg-slate-800 dark:text-slate-100 bg-gray-50 text-gray-900;
+  @apply dark:bg-slate-800 dark:text-slate-100 bg-gray-200 text-gray-900;
 }
 
 ::-webkit-scrollbar {

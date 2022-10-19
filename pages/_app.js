@@ -14,7 +14,9 @@ function MyApp({ Component, pageProps }) {
     dark: "bg-slate-800",
   }
   return (
-    <ThemeProvider>
+    <ThemeProvider
+      enableSystem={true}
+      attribute="class">
       <Layout>
         <ToastContainer
           toastClassName={({ type }) =>

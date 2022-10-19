@@ -4,16 +4,7 @@ function HomeComp() {
   const [darkToggle, setDarkToggle] = useState(true)
   return (
     <div
-      className={`h-screen w-full flex items-center justify-center bg-slate-800 flex-col ${
-        darkToggle && "dark"
-      }`}>
-      <label className="toggleDarkBtn">
-        <input
-          type="checkbox"
-          onClick={() => setDarkToggle(!darkToggle)}
-        />
-        <span className="slideBtnTg round"></span>
-      </label>
+      className={`h-screen w-full flex items-center justify-center dark:bg-slate-800 bg-gray-200 flex-col`}>
       <div className="max-w-sm rounded-xl overflow-hidden shadow-xl  bg-gray-100 p-5 mt-4 text-white dark:bg-gray-900">
         <div className="px-6 py-4">
           <div className="text-gray-800 dark:text-gray-200 font-bold text-xl mb-2">

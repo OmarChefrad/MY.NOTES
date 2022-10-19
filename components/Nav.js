@@ -1,19 +1,44 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Link from "next/link"
 import { auth } from "../utils/firebase"
 import { useAuthState } from "react-firebase-hooks/auth"
-import { BsMoonStarsFill } from "react-icons/bs"
-import { BsFillSunFill } from "react-icons/bs"
+import { FaSun, FaMoon } from "react-icons/fa"
 import { useTheme } from "next-themes"
 
 const Nav = () => {
   const { systemTheme, theme, setTheme } = useTheme()
-
+  const [mounted, setMounted] = useState(false)
   const [user, loading] = useAuthState(auth)
 
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const renderThemeChanger = () => {
+    if (!mounted) return null
+
+    const currentTheme = theme === "system" ? systemTheme : theme
+
+    if (currentTheme === "dark") {
+      return (
+        <FaMoon
+          className="text-gray-900 dark:text-gray-100 text-2xl cursor-pointer"
+          onClick={() => setTheme("light")}
+        />
+      )
+    } else {
+      return (
+        <FaSun
+          className="text-gray-900 dark:text-gray-100 text-2xl cursor-pointer"
+          onClick={() => setTheme("dark")}
+        />
+      )
+    }
+  }
+
   return (
-    <div className="flex dark:bg-slate-100 bg-gray-900 h-16 justify-between items-center shadow-lg">
+    <div className="flex dark:bg-gray-900 bg-slate-100 h-16 justify-between items-center  ">
       <Link href="/">
         <button
           className="pl-4 md:pl-4 text-transparent text-2xl
@@ -23,17 +48,8 @@ const Nav = () => {
           MY NOTES
         </button>
       </Link>
-      <select
-        value={theme}
-        onChange={(e) => setTheme(e.target.value)}>
-        <option value="system">System</option>
-        <option value="dark">Dark</option>
-        <option value="light">Light</option>
-      </select>
       <ul className="flex items-center gap-4">
-        <button>
-          <BsFillSunFill className="w-7 h-7 dark:text-slate-200 text-gray-900 cursor-pointer" />
-        </button>
+        {renderThemeChanger()}
         {!user && (
           <Link href={"/auth/login"}>
             <a
