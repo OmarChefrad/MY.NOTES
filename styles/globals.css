@@ -6,13 +6,11 @@
 
 html,
 body {
-  background-color: #1e293bc1;
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
-  user-select: none;
 }
 
 body {

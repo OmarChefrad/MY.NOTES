@@ -23,7 +23,7 @@ const Nav = () => {
     if (currentTheme === "dark") {
       return (
         <FaMoon
-          className="text-gray-900 dark:text-gray-100 text-2xl cursor-pointer"
+          className="text-gray-900 dark:text-gray-100 text-xl cursor-pointer"
           onClick={() => setTheme("light")}
         />
       )
