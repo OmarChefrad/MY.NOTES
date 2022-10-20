@@ -38,7 +38,7 @@ const Nav = () => {
   }
 
   return (
-    <div className="flex dark:bg-gray-900 bg-slate-100 h-16 justify-between items-center  ">
+    <div className="flex dark:bg-gray-900 bg-slate-100 h-16 justify-between items-center rounded-xl">
       <Link href="/">
         <button
           className="pl-4 md:pl-4 text-transparent text-2xl
@@ -61,9 +61,9 @@ const Nav = () => {
         )}
         {user && (
           <div className="flex item-center gap-4">
-            <Link href="/collection">
+            <Link href="/notes">
               <button className="cursor-pointer h-10 mt-2 px-2 rounded-md text-xs tracking-[2px] font-bold text-white bg-gradient-to-r from-orange-400 to-orange-600">
-                Collection
+                Write It Down
               </button>
             </Link>
             <Link href="/dashbord">

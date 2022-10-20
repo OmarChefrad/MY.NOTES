@@ -40,7 +40,7 @@ export default function Notes() {
   }
 
   return (
-    <div className=" h-screen my-20 p-12 text-slate-100  bg-gray-900 shadow-lg rounded-lg max-w-md mx-auto">
+    <div className=" h-fill my-20 p-12 dark:text-slate-100 text-slate-800 dark:bg-gray-900 bg-white shadow-lg rounded-lg max-w-md mx-auto">
       <form
         action=""
         onSubmit={submitNote}>
@@ -50,12 +50,12 @@ export default function Notes() {
           <textarea
             value={title.name}
             onChange={(e) => setTitle(e.target.value)}
-            className="bg-gray-700 h-12 w-full text-white rounded-lg p-2 text-sm"></textarea>
+            className="dark:text-slate-100 text-slate-800 dark:bg-slate-800 bg-gray-200 h-12 w-full rounded-lg p-2 text-sm"></textarea>
           <h3 className="text-lg font-medium py-2">Description</h3>
           <textarea
             value={note.description}
             onChange={(e) => setNote(e.target.value)}
-            className="bg-gray-700 h-48 w-full text-white rounded-lg p-2 text-sm"></textarea>
+            className="dark:text-slate-100 text-slate-800 dark:bg-slate-800 bg-gray-200 h-48 w-full rounded-lg p-2 text-sm"></textarea>
           <p
             className={`py-2 text-orange-400 font-meduim text-sm ${
               note.length > 300 ? "text-red-500" : ""

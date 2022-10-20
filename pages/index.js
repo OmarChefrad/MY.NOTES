@@ -51,15 +51,15 @@ export default function Home() {
         />
       </Head>
 
-      <main className="text-gray-800 bg-gray-200  dark:bg-slate-800  dark:text-slate-100">
+      <main className="text-gray-800 bg-gray-200 dark:bg-slate-800 dark:text-slate-100 overflow-scroll">
         <div className="flex flex-col items-center">
-          <div className=" pt-4 text-lg font-[500]">
+          <div className="pt-6 pb-2 text-lg font-[500]">
             {text}
             <Cursor cursorColor="orange" />
           </div>
           {allNotes.map((note) => (
             <HomeComp
-              key={note.note}
+              key={note.user}
               {...note}></HomeComp>
           ))}
         </div>
