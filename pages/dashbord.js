@@ -29,7 +29,7 @@ export default function Dashbord() {
         </div>
       </Link>
       <button
-        className="cursor-pointer h-8 mt-2 rounded-md text-sm tracking-[2px] font-bold  text-slate-900 dark:text-gray-200"
+        className="cursor-pointer h-8 mt-2 rounded-md text-sm tracking-[2px] font-bold text-slate-900 dark:text-gray-200"
         onClick={() => auth.signOut()}>
         Sign Out
       </button>
