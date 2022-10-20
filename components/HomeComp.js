@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Timestamp } from "firebase/firestore"
 import React from "react"
-import { AiFillEdit } from "react-icons/ai"
+import { AiTwotoneEdit } from "react-icons/ai"
 import Link from "next/link"
 
 function HomeComp({ children, avatar, username, note, title, timestamp }) {
@@ -24,7 +24,7 @@ function HomeComp({ children, avatar, username, note, title, timestamp }) {
               By {username}. At {new Date(timestamp.toDate()).toDateString()}.
             </p>
             <Link href="/notes">
-              <AiFillEdit className="ml-20 mt-4 text-orange-400  cursor-pointer" />
+              <AiTwotoneEdit className="ml-20 mt-4 text-orange-400  cursor-pointer" />
             </Link>
           </div>
         </div>

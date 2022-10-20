@@ -2,24 +2,16 @@ import React, { useEffect, useState } from "react"
 import { auth, db } from "../utils/firebase"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { useRouter } from "next/router"
-import { collection, onSnapshot, query, where } from "firebase/firestore"
 import Link from "next/link"
 
 export default function Dashbord() {
   const route = useRouter()
   const [user, loading] = useAuthState(auth)
-  const [notes, setNotes] = useState([])
 
   console.log(user)
   const getData = async () => {
     if (loading) return
     if (!user) return route.push("/auth/login")
-    const collectionRef = collection(db, "notes")
-    const q = query(collectionRef, where("user", "==", user.uid))
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      setNotes(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
-    })
-    return unsubscribe
   }
 
   useEffect(() => {

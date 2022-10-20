@@ -59,7 +59,7 @@ export default function Home() {
           </div>
           {allNotes.map((note) => (
             <HomeComp
-              key={note.user}
+              key={note.note}
               {...note}></HomeComp>
           ))}
         </div>
